@@ -13,6 +13,7 @@
 <script>
 // ServiceWorker登録：https://developers.google.com/web/fundamentals/primers/service-workers/?hl=ja
 if ('serviceWorker' in navigator) {
+
     navigator.serviceWorker.getRegistrations().then(function(registrations) {
     // 登録されているworkerを全て削除する
     for(let registration of registrations) {
