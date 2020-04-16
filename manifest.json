@@ -1,8 +1,9 @@
 {
-	"short_name": "PWAサンプル",
-	"name": "PWAサンプルアプリ",
+	"short_name": "PWAプッシュ通知",
+	"name": "PWAプッシュ通知サンプルアプリ",
 	"display": "standalone",
 	"start_url": "index.html",
+	"gcm_sender_id": "103953800507",
 	"icons": [
 		{
 			"src": "images/app-icon-192.png",
