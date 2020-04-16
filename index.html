@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="manifest" href="manifest.json">
 <title>プッシュ通知の購読設定</title>
+<link rel="stylesheet" type="text/css" href="css/push.css">
+<link rel="apple-touch-icon" href="images/app-icon-192.png" sizes="192x192">
 <!--firebasejsの読み込み-->
 <script src="./firebasejs/firebase-app.js"></script>
 <script src="./firebasejs/firebase-messaging.js"></script>
@@ -18,7 +20,7 @@
   <div class="col-sm-6">
     <h1 class="text-center">プッシュ通知の購読設定</h1>
     <h2 id="newitem" class="text-center"></h2>
-    <img id="load" src="images/icon_loader.gif"/>
+    <img id="load" calss="" src="images/icon_loader.gif"/>
     <button id="button" onclick="getSubscription()" class="btn center-block"></button>
     <div id="token">
     </div>
@@ -45,16 +47,20 @@
     messaging.usePublicVapidKey("BCQU1_nrPUUFceRvfUDCPAMrg2OPt3qgoV0StBkEfbhqceFPNpo98j-IJ3JQxer5o2K1nh7Y2ZihwclR661eqE8");
 
 // Service Worker ファイルを登録し、ボタン表示を行う
+    var load = document.getElementById('load');
     registSW();
     initialButton();
+    
 
     function initialButton() {
       messaging.getToken().then(token => {
         if (token) {
           document.getElementById("button").innerText = "プッシュ通知を購読中(トークン表示)";
         } else {
-          document.getElementById("button").innerText = "プッシュ通知を受付する";
+          document.getElementById("button").innerText = "プッシュ通知を受付する(登録後トークン表示)";
         }
+        load.classList.add("none");
+        
       }).catch(function (err) {
         console.log('An error occurred while retrieving token. ', err);
       });
@@ -64,8 +70,10 @@
 // すでに購読済みの場合、取得済みのFirebase用トークンを表示
 
     function getSubscription() {
+      load.classList.remove("none");
       messaging.getToken().then(token => {
-        if (!token) {          getNotification();
+        if (!token) {          
+          getNotification();
         } else {
           displayToken();
         }
