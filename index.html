@@ -100,7 +100,7 @@
       });
     }
 
-
+function registSW() {
 // ServiceWorker登録：https://developers.google.com/web/fundamentals/primers/service-workers/?hl=ja
 if ('serviceWorker' in navigator) {
 
@@ -140,6 +140,8 @@ if ('serviceWorker' in navigator) {
     .catch(err => {
       // 登録失敗
   });
+}
+
 }
 </script>
 </body>
