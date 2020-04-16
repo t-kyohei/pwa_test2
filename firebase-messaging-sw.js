@@ -1,5 +1,5 @@
-importScripts('./firebase-app.js');
-importScripts('./firebase-messaging.js');
+importScripts('./firebasejs/firebase-app.js');
+importScripts('./firebasejs/firebase-messaging.js');
 
 firebase.initializeApp({
   'messagingSenderId': '83284008014'
