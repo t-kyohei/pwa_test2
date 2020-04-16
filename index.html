@@ -104,6 +104,7 @@
           var div = document.createElement('div');
           div.textContent = token;
           divp.appendChild(div);
+          load.classList.add("none");
         } else {
           console.log('No Instance ID token available. Request permission to generate one.');
         }
