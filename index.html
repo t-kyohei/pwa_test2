@@ -47,9 +47,9 @@
     function initialButton() {
       messaging.getToken().then(token => {
         if (token) {
-          document.getElementById("button").innerText = "プッシュ通知を購読";
+          document.getElementById("button").innerText = "プッシュ通知を購読中";
         } else {
-          document.getElementById("button").innerText = "プッシュ通知を購読";
+          document.getElementById("button").innerText = "プッシュ通知を受付";
         }
       }).catch(function (err) {
         console.log('An error occurred while retrieving token. ', err);
