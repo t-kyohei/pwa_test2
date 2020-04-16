@@ -7,7 +7,6 @@ var urlsToCache = [
 	'./index.html',
 	'./css/style.css',
 	'./drawer.js',
-	'./images/app-icon-192-2.png'
 ];
 
 // インストール処理
