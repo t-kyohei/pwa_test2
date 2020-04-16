@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="manifest" href="manifest.json">
-<title>プッシュ通知の購読</title>
+<title>プッシュ通知の購読設定</title>
 <!--firebasejsの読み込み-->
 <script src="./firebasejs/firebase-app.js"></script>
 <script src="./firebasejs/firebase-messaging.js"></script>
@@ -16,9 +16,13 @@
   <div class="col-sm-3"></div>
 
   <div class="col-sm-6">
-    <h1 class="text-center">プッシュ通知の購読</h1>
+    <h1 class="text-center">プッシュ通知の購読設定</h1>
     <h2 id="newitem" class="text-center"></h2>
+    <img src="images/icon_loader.gif"/>
     <button id="button" onclick="getSubscription()" class="btn center-block"></button>
+    <div id="token">
+    </div>
+  
   </div>
 
 
@@ -47,9 +51,9 @@
     function initialButton() {
       messaging.getToken().then(token => {
         if (token) {
-          document.getElementById("button").innerText = "プッシュ通知を購読中";
+          document.getElementById("button").innerText = "プッシュ通知を購読中(トークン表示)";
         } else {
-          document.getElementById("button").innerText = "プッシュ通知を受付";
+          document.getElementById("button").innerText = "プッシュ通知を受付する";
         }
       }).catch(function (err) {
         console.log('An error occurred while retrieving token. ', err);
@@ -88,7 +92,7 @@
       messaging.getToken().then(token => {
         if (token) {
           console.log(token);
-          var  divp = document.getElementById("newitem");
+          var  divp = document.getElementById("token");
           var div = document.createElement('div');
           div.textContent = token;
           divp.appendChild(div);
@@ -104,7 +108,7 @@ function registSW() {
 // ServiceWorker登録：https://developers.google.com/web/fundamentals/primers/service-workers/?hl=ja
 if ('serviceWorker' in navigator) {
 
-    navigator.serviceWorker.getRegistrations().then(function(registrations) {
+<!--    navigator.serviceWorker.getRegistrations().then(function(registrations) {
     // 登録されているworkerを全て削除する
     for(let registration of registrations) {
         registration.unregister();
@@ -124,7 +128,7 @@ caches.keys().then(function(keys) {
 	}).catch(function(err) {
 		console.log('ServiceWorker registration failed: ', err);
 	});
-}
+}-->
 
 
 if ('serviceWorker' in navigator) {

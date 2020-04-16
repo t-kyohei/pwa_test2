@@ -22,7 +22,7 @@ messaging.setBackgroundMessageHandler(function (payload) {
 
 
 var CACHE_NAME = 'pwa-push-test-caches';
-var urlsToCache = ['./index.html','./firebasejs/firebase-app.js','./firebasejs/firebase-messaging.js'];
+var urlsToCache = ['./index.html','./firebasejs/firebase-app.js','./firebasejs/firebase-messaging.js','./images/icon_loader.gif'];
 
 
 
