@@ -22,7 +22,7 @@
     <h2 id="newitem" class="text-center"></h2>
     <img id="load" calss="" src="images/icon_loader.gif"/>
     <button id="button" onclick="getSubscription()" class="btn center-block"></button>
-    <div id="token">
+    <div id="token" calss=text">
     </div>
   
   </div>
@@ -101,9 +101,7 @@
         if (token) {
           console.log(token);
           var  divp = document.getElementById("token");
-          var div = document.createElement('div');
-          div.textContent = token;
-          divp.appendChild(div);
+          divp.textContent = token;
           load.classList.add("none");
         } else {
           console.log('No Instance ID token available. Request permission to generate one.');
