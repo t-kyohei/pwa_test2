@@ -112,7 +112,7 @@
       messaging.requestPermission().then(function () {
         console.log('Notification permission granted.');
         displayToken();
-        initialButton();
+        location.reload();
       }).catch(function (err) {
         console.log('Unable to get permission to notify.', err);
       });
@@ -135,10 +135,11 @@
 
 function registSW() {
 // ServiceWorker登録：https://developers.google.com/web/fundamentals/primers/service-workers/?hl=ja
+
 if ('serviceWorker' in navigator) {
 
 /*
-//    navigator.serviceWorker.getRegistrations().then(function(registrations) {
+     navigator.serviceWorker.getRegistrations().then(function(registrations) {
     // 登録されているworkerを全て削除する
     for(let registration of registrations) {
         registration.unregister();
