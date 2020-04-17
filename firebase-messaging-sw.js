@@ -26,6 +26,10 @@ var urlsToCache = ['./index.html','./firebasejs/firebase-app.js','./firebasejs/f
 
 
 
+
+
+
+
 self.addEventListener('install', function(event) {
     event.waitUntil(
         caches
