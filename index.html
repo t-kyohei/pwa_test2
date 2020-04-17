@@ -98,9 +98,15 @@
 		    navigator.serviceWorker.getRegistrations().then(function(registrations) {
     		// 登録されているworkerを全て削除する
     			for(let registration of registrations) {
-    				var scope =registration.scope;
-        			registration.unregister();
+ 		   			var scope =registration.scope;
+ 		   			var pattern = "firebase-cloud-messaging-push-scope"
+	 		   			if(sscope.indexOf(pattern) > -1){
+  						registration.unregister();
+  						// 部分一致のときの処理
+						}
+
     			}
+    				
       		});		
       }
       messaging.requestPermission().then(function () {
