@@ -59,8 +59,11 @@
       messaging.getToken().then(token => {
         var button = document.getElementById("button")
         if (token) {
-          button.innerText = "プッシュ通知を購読中(トークン表示)";
-          button.addEventListener('click', displayToken, false);
+          button.innerText = "プッシュ通知を購読中(トークン表示中)";
+          button.setAttribute("disabled", true);
+          var  divp = document.getElementById("token");
+          divp.textContent = token;
+          
         } else {
           button.innerText = "プッシュ通知を受付する(登録後トークン表示)";
           button.addEventListener('click', getSubscription, false);
@@ -106,9 +109,7 @@
       messaging.getToken().then(token => {
         if (token) {
           console.log(token);
-          var  divp = document.getElementById("token");
-          divp.textContent = token;
-          load.classList.add("none");
+           load.classList.add("none");
         } else {
           console.log('No Instance ID token available. Request permission to generate one.');
         }
