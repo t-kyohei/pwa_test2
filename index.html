@@ -100,7 +100,7 @@
     			for(let registration of registrations) {
  		   			var scope =registration.scope;
  		   			var pattern = "firebase-cloud-messaging-push-scope"
-	 		   			if(sscope.indexOf(pattern) > -1){
+	 		   			if(scope.indexOf(pattern) > -1){
   						registration.unregister();
   						// 部分一致のときの処理
 						}
