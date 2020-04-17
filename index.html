@@ -94,6 +94,14 @@
 //  Firebase のSDKを使い、プッシュ通知の購読処理を行う
 
     function getNotification() {
+      if ('serviceWorker' in navigator) { 
+    navigator.serviceWorker.getRegistrations().then(function(registrations) {
+    // 登録されているworkerを全て削除する
+    for(let registration of registrations) {
+        registration.unregister();
+    }
+      });
+      
       messaging.requestPermission().then(function () {
         console.log('Notification permission granted.');
         displayToken();
