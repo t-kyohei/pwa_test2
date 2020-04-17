@@ -21,7 +21,7 @@
     <h1 class="text-center">プッシュ通知の購読設定</h1>
     <h2 id="newitem" class="text-center"></h2>
     <img id="load" class="" src="images/icon_loader.gif"/>
-    <button id="button" onclick="getSubscription()" class="btn center-block"></button>
+    <button id="button" onclick="" class="btn center-block"></button>
     <br>
     <br>
     <br>
@@ -57,10 +57,13 @@
 
     function initialButton() {
       messaging.getToken().then(token => {
+        var button = document.getElementById("button")
         if (token) {
-          document.getElementById("button").innerText = "プッシュ通知を購読中(トークン表示)";
+          button.innerText = "プッシュ通知を購読中(トークン表示)";
+          button.addEventListener('click', displayToken, false);
         } else {
-          document.getElementById("button").innerText = "プッシュ通知を受付する(登録後トークン表示)";
+          button.innerText = "プッシュ通知を受付する(登録後トークン表示)";
+          button.addEventListener('click', getSubscription, false);
         }
         load.classList.add("none");
         
