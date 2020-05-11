@@ -60,5 +60,10 @@ self.addEventListener('push', function(event) {
 		icon: icon,
 		body: body
 	})
-})
+});
+
+self.addEventListener('notificationclick', function (event) {
+    event.notification.close();
+    clients.openWindow("/");
+}, false);
 
