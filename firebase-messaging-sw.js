@@ -50,7 +50,7 @@ self.addEventListener('fetch', function(event) {
     );
 });
 
-/*
+
 self.addEventListener('push', function(event) {
 	var data = event.data.json();
 	var title = data.title;
@@ -61,4 +61,4 @@ self.addEventListener('push', function(event) {
 		body: body
 	})
 })
-*/
+
