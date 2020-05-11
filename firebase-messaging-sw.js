@@ -53,9 +53,9 @@ self.addEventListener('fetch', function(event) {
 
 self.addEventListener('push', function(event) {
 	var data = event.data.json();
-	var title = data.title;
-	var icon = data.icon;
-	var body = data.body;
+	var title = data.notification.title;
+	var icon = data.notification.icon;
+	var body = data.notification.body;
 	self.registration.showNotification(title, {
 		icon: icon,
 		body: body
