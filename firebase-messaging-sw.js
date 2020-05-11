@@ -50,12 +50,13 @@ self.addEventListener('fetch', function(event) {
     );
 });
 
-
+var click ="/";
 self.addEventListener('push', function(event) {
 	var data = event.data.json();
 	var title = data.notification.title;
 	var icon = data.notification.icon;
 	var body = data.notification.body;
+	click = data.notification.click_action;
 	self.registration.showNotification(title, {
 		icon: icon,
 		body: body
@@ -64,6 +65,6 @@ self.addEventListener('push', function(event) {
 
 self.addEventListener('notificationclick', function (event) {
     event.notification.close();
-    clients.openWindow("/");
+    clients.openWindow(click);
 }, false);
 
